@@ -58,15 +58,13 @@ export default class TutorialsList extends Component {
     });
   }
 
-  changeColor(){
-    this.setState({black: !this.state.black})
-}
+  
 
 
   render(){
 
   const { tutorials, currentTutorial, currentIndex } = this.state;
-  let btn_class = this.state.black ? "blackButton" : "whiteButton";
+  
   
 
   return (
@@ -78,11 +76,10 @@ export default class TutorialsList extends Component {
             {tutorials &&
               tutorials.map((task, index) => (
                 <li 
-                  className={
-                    "list-group-item"  +
+                  className={"list-group-item"+
                     (index === currentIndex ? "active" : "")
                   }
-                  className={btn_class}
+                  
                   onClick={() => this.setActiveTutorial(task, index)}
                   key={index}
                   
@@ -110,7 +107,7 @@ export default class TutorialsList extends Component {
               >
                 Detalle
               </Link>
-              <button className="badge badge-secondary mr-2"  onClick={() => this.changeColor.bind(this)} > Done </button>
+              <button className="badge badge-secondary mr-2"  > Done </button>
             </div>
           ) : (
             <div>
